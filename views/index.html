@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>首页</title>
+		<link rel="stylesheet" href="../public/css/bootstrap.css" />		
+	</head>
+	<style>
+		.row{
+			margin-top: 10px;
+		}
+		#updateform{
+			display: none;
+		}
+	</style>
+	<body>
+		<div id="app">
+			<div class="container" style="margin-top: 20px;">
+				<div class="row">
+					<div class="col-md-12">
+						<input type="text" class="form-control" id="name2"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<input type="password" class="form-control" id="pwd2"/>
+					</div>
+				</div>
+				<div class="row text-center">
+					<button @click="login()" class="btn btn-danger">登录</button>
+				</div>
+			</div>
+			<div class="container" style="margin-top: 20px;">
+				<div class="row">
+					<div class="col-md-12">
+						<input type="text" class="form-control" placeholder="请输入账号" id="name1" value="" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<input type="password" class="form-control" placeholder="请输入密码" id="pwd1" value="" />
+					</div>
+				</div>
+				<div class="row text-center">
+					<button @click="add()" class="btn btn-danger">添加</button>
+				</div>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="text-center">Id</th>
+						<th class="text-center">账号</th>
+						<th class="text-center">密码</th>	
+						<th class="text-center">操作</th>	
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(item,index) in stulist">
+						<td class="text-center">{{item.Id}}</td>
+						<td class="text-center">{{item.name}}</td>				
+						<td class="text-center">{{item.password}}</td>				
+						<td class="text-center">
+							<button @click="del(item.Id)">删除</button>
+							<button @click="update(item.Id)">修改</button>
+						</td>				
+					</tr>
+				</tbody>
+			</table>
+			<div id="updateform" class="container" style="margin-top: 20px;">
+				<div class="row">
+					<div class="col-md-12">
+						<input type="text" class="form-control" id="upname" value="" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<input type="password" class="form-control" id="uppwd" value="" />
+					</div>
+				</div>
+				<div class="row text-center">
+					<button @click="updateconfirm()" class="btn btn-danger">确认修改</button>
+				</div>
+			</div>
+		</div>		
+		<script type="text/javascript" src="../public/js/jquery-1.9.1.js" ></script>		
+		<script type="text/javascript" src="../public/js/vue.min.js" ></script>
+		<script type="text/javascript" src="../public/js/vue-resource.js" ></script>
+		<script type="text/javascript" src="../public/js/index.js" ></script>
+	</body>
+</html>
